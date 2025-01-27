@@ -73,7 +73,7 @@ def create_ec2_instance(security_group_id):
     response = ec2_client.run_instances(
         ImageId="ami-0c02fb55956c7d316",  # Amazon Linux 2 AMI
         InstanceType="t2.micro",
-        KeyName="MyKeyPair",
+        KeyName="newTolu",
         MinCount=1,
         MaxCount=1,
         SecurityGroupIds=[security_group_id],
