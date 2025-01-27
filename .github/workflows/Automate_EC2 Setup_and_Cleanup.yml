@@ -31,7 +31,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-east-1
       run: |
-        python ec2_automation.py
+        python3 ec2_automation.py
 
     # 5. Cleanup resources
     - name: Cleanup Resources
@@ -41,4 +41,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-east-1
       run: |
-        python ec2_cleanup.py
+        python3 ec2_cleanup.py
