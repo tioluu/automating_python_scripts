@@ -1,7 +1,10 @@
 import boto3
 import logging
 
-def create_security_group(group_name, description):
+def create_security_group():
+    group_name = 'EC2_Automation_SG'
+    description = 'Security group for EC2 automation script'
+    
     ec2_client = boto3.client('ec2', region_name='us-east-1')
     
     logging.info(f"Creating security group: {group_name}")
