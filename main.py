@@ -1,3 +1,4 @@
+import boto3
 import logging
 from security_group import create_security_group
 from s3_operations import create_s3_bucket, upload_file_to_s3
