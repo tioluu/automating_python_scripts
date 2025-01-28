@@ -13,7 +13,7 @@ def create_ec2_instance(security_group_id):
     response = ec2_client.run_instances(
         ImageId="ami-04b4f1a9cf54c11d0",  # Ubuntu
         InstanceType="t2.micro",
-        KeyName="newTolu",
+        KeyName="newTest",
         MinCount=1,
         MaxCount=1,
         SecurityGroupIds=[security_group_id],
