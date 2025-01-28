@@ -14,7 +14,6 @@ def create_cloudwatch_alarm(instance_id):
         Threshold=80.0,
         ComparisonOperator='GreaterThanThreshold',
         EvaluationPeriods=1,
-        AlarmActions=[],  # Add SNS Topic ARN here for notifications
         Dimensions=[{'Name': 'InstanceId', 'Value': instance_id}]
     )
     logging.info("CloudWatch alarm created.")
