@@ -1,16 +1,13 @@
 import boto3
 import logging
 
-user_data_script = """#!/bin/bash
-sudo yum update -y
-sudo yum install -y httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-echo '<h1>Welcome to My Automated EC2 Instance!</h1>' | sudo tee /var/www/html/index.html
-"""
 
 def create_ec2_instance(security_group_id):
     ec2_client = boto3.client('ec2', region_name='us-east-1')
+    
+    # Read the user data script from the file
+    with open('user_data.sh', 'r') as file:
+        user_data_script = file.read()
     
     logging.info("Creating EC2 instance...")
     response = ec2_client.run_instances(
