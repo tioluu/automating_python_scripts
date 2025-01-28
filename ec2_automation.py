@@ -71,7 +71,7 @@ def upload_file_to_s3(bucket_name, file_name, object_name=None):
 def create_ec2_instance(security_group_id):
     logging.info("Creating EC2 instance...")
     response = ec2_client.run_instances(
-        ImageId="ami-0c02fb55956c7d316",  # Amazon Linux 2 AMI
+        ImageId="ami-04b4f1a9cf54c11d0",  # Ubuntu
         InstanceType="t2.micro",
         KeyName="newTolu",
         MinCount=1,
