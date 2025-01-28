@@ -8,6 +8,7 @@ from cloudwatch_alarm import create_cloudwatch_alarm
 # Configure logging
 logging.basicConfig(
     filename='automation.log',
+    filemode='w',  # Overwrite the log file for each run
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
@@ -16,10 +17,7 @@ logging.info("EC2 Automation Script Started.")
 if __name__ == "__main__":
     try:
         # Step 1: Create a security group
-        security_group_id = create_security_group(
-            group_name="EC2_Automation_SG",
-            description="Security group for EC2 automation script"
-        )
+        security_group_id = create_security_group()
 
         # Step 2: Create an S3 bucket
         bucket_name = "my-devops-ec2-bucket"
