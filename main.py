@@ -1,5 +1,6 @@
 import boto3
 import logging
+import sys
 from security_group import create_security_group
 from s3_operations import create_s3_bucket, upload_file_to_s3
 from ec2_instance import create_ec2_instance
@@ -37,3 +38,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         logging.error(f"Error in automation: {e}")
+        sys.exit(1)  # Exit with an error code to indicate failure
