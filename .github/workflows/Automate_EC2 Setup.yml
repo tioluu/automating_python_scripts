@@ -1,4 +1,4 @@
-name: Automate EC2 Setup and Cleanup
+name: Automate EC2 Setup
 
 on:
   workflow_dispatch: # Allows manual triggering of the workflow
