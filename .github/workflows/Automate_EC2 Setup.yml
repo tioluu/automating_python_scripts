@@ -32,11 +32,12 @@ jobs:
         AWS_DEFAULT_REGION: us-east-1
       run: |
         python3 main.py
+      continue-on-error: true  # This ensures the workflow doesn't stop on failure
 
     # 5. View log file
     - name: Upload logs as artifact
       uses: actions/upload-artifact@v3
       with:
         name: automation-logs
-        path: automation.log  
-
+        path: automation.log
+      if: always()  # This ensures the log upload always happens, even if the previous steps fail  
