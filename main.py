@@ -28,7 +28,7 @@ if __name__ == "__main__":
         instance_id = create_ec2_instance(security_group_id)
         logging.info("Waiting for instance to initialize...")
         ec2_client = boto3.client('ec2', region_name='us-east-1')
-        ec2_client.get_waiter('instance-running').wait(InstanceIds=[instance_id])
+        ec2_client.get_waiter('instance_running').wait(InstanceIds=[instance_id])
 
         # Step 4: Set up CloudWatch monitoring
         create_cloudwatch_alarm(instance_id)
