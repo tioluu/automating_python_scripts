@@ -9,8 +9,16 @@ def create_s3_bucket(bucket_name):
         # No CreateBucketConfiguration for us-east-1
         s3_client.create_bucket(Bucket=bucket_name)
         logging.info(f"S3 bucket {bucket_name} created.")
+
+        # Enable bucket versioning
+        logging.info(f"Enabling versioning for bucket {bucket_name}...")
+        s3_client.put_bucket_versioning(
+            Bucket=bucket_name,
+            VersioningConfiguration={'Status': 'Enabled'}
+        )
+        logging.info(f"Versioning enabled for bucket {bucket_name}.")
     except Exception as e:
-        logging.error(f"Error creating bucket {bucket_name}: {e}")
+        logging.error(f"Error creating or configuring bucket {bucket_name}: {e}")
         raise
     return bucket_name
 
