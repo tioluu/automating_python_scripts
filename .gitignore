@@ -56,13 +56,10 @@ cover/
 *.pot
 
 # Django stuff:
-<<<<<<< HEAD
 *.log
 !cleanup.log
 !automation.log
 
-=======
->>>>>>> ef538d6829ad16e594a06da1a50a3b3715b42669
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
