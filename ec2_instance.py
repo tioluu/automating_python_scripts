@@ -1,7 +1,6 @@
 import boto3
 import logging
 
-
 def create_ec2_instance(security_group_id):
     ec2_client = boto3.client('ec2', region_name='us-east-1')
     
@@ -19,6 +18,14 @@ def create_ec2_instance(security_group_id):
         SecurityGroupIds=[security_group_id],
         Monitoring={'Enabled': True},
         UserData=user_data_script,
+        TagSpecifications=[
+            {
+                'ResourceType': 'instance',
+                'Tags': [
+                    {'Key': 'Name', 'Value': 'EC2_Automation_Instance'}
+                ]
+            }
+        ]
     )
     instance_id = response['Instances'][0]['InstanceId']
     logging.info(f"EC2 instance created with ID: {instance_id}")
