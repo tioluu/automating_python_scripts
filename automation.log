@@ -1,0 +1,3 @@
+2025-01-29 11:28:01,757 - INFO - EC2 Automation Script Started.
+2025-01-29 11:28:01,869 - INFO - Creating security group: EC2_Automation_SG
+2025-01-29 11:28:03,777 - ERROR - Error in automation: An error occurred (InvalidGroup.Duplicate) when calling the CreateSecurityGroup operation: The security group 'EC2_Automation_SG' already exists for VPC 'vpc-07974eb1e454fc182'
